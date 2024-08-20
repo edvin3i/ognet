@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Date
-from app.db.base import Base
+from app.db import Base
 
 class Extinguisher(Base):
     __tablename__ = 'extinguisher'

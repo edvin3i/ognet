@@ -18,7 +18,7 @@ def create_extinguisher(db: Session, extinguisher: ExtinguisherCreate):
 def update_extinguisher(db: Session, extinguisher_id: int, extinguisher: ExtinguisherUpdate ):
     db_extinguisher = get_extinguisher(db, extinguisher_id)
     if db_extinguisher:
-        for key, value in extinguisher.dicd(exclude_unset=True).items():
+        for key, value in extinguisher.model_dump(exclude_unset=True).items():
             setattr(db_extinguisher, key, value)
         db.commit()
         db.refresh(db_extinguisher)
