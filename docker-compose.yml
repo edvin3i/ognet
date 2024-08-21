@@ -1,9 +1,8 @@
 version: '3.8'
 
 networks:
-  default:
+  extsvcs:
     external: true
-    name: extsvcs
 
 services:
   app:
