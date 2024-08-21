@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   extsvcs:
     external: true
@@ -15,13 +13,13 @@ services:
     volumes:
       - /var/lib/docker/volumes/ognet/_data:/app
     environment:
-      DATABASE_URL: "sqlite:///./test.db"
-      SMTP_SERVER: "smtp.example.com"
+      DATABASE_URL: "sqlite:////db/test.db"
+      SMTP_SERVER: "smtp.ibondar.pro"
       SMTP_PORT: 587
-      SMTP_USER: "user@example.com"
+      SMTP_USER: "user@ibondar.pro"
       SMTP_PASSWORD: "yourpassword"
-      EMAIL_FROM: "noreply@example.com"
-      EMAIL_TO: "admin@example.com"
+      EMAIL_FROM: "noreply@ibondar.pro"
+      EMAIL_TO: "admin@ibondar.pro"
     networks:
       - extsvcs
     restart: always
