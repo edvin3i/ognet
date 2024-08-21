@@ -11,7 +11,7 @@ services:
     ports:
       - "8444:8444"
     volumes:
-      - /var/lib/docker/volumes/ognet/_data:/app
+      - /var/lib/docker/volumes/ognet/_data:/db
     environment:
       DATABASE_URL: "sqlite:////db/test.db"
       SMTP_SERVER: "smtp.ibondar.pro"
