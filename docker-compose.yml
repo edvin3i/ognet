@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ognet
+    ports:
+      - "8444:8444"
+    volumes:
+      - /var/lib/docker/volumes/ognet/_data:/app
+    environment:
+      DATABASE_URL: "sqlite:///./test.db"
+      SMTP_SERVER: "smtp.example.com"
+      SMTP_PORT: 587
+      SMTP_USER: "user@example.com"
+      SMTP_PASSWORD: "yourpassword"
+      EMAIL_FROM: "noreply@example.com"
+      EMAIL_TO: "admin@example.com"
+    networks:
+      - extsvcs
+    restart: always
