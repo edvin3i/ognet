@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.crud import extinguisher as crud_extinguisher
+from app.crud.extinguisher import get_extinguishers
 from app.schemas.extinguisher import ExtinguisherCreate, ExtinguisherUpdate, Extinguisher
 from app.db import get_db
 
@@ -9,6 +10,10 @@ router = APIRouter()
 @router.post("/", response_model=ExtinguisherCreate)
 def create_extinguisher(extinguisher: ExtinguisherCreate, db: Session = Depends(get_db)):
     return crud_extinguisher.create_extinguisher(db=db, extinguisher=extinguisher)
+
+@router.get("/all")
+def get_all_extinguishers(db: Session = Depends(get_db)):
+    return get_extinguishers(db, skip=0, limit=1000)
 
 @router.get("/{extinguisher_id}", response_model=ExtinguisherUpdate)
 def read_extinguisher(extinguisher_id: int, db: Session = Depends(get_db)):
