@@ -8,8 +8,6 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ognet
-    ports:
-      - "8444:8444"
     volumes:
       - /var/lib/docker/volumes/ognet/_data:/db
     environment:
